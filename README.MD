@@ -317,4 +317,90 @@ print(gc.get_stats())  # View GC stats
 
 ---
 
+In Python, a **programming paradigm** refers to a style or way of programming. Python is a **multi-paradigm language**, which means it supports several programming approaches. Here's a breakdown of the main paradigms Python supports:
 
+---
+
+## 🧱 1. **Procedural Programming**
+- **Focus**: Step-by-step instructions (like a recipe).
+- **Structure**: Uses functions, loops, and conditionals.
+- **Common in**: Scripts, automation, small programs.
+
+```python
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Alice")
+```
+
+---
+
+## 🧠 2. **Object-Oriented Programming (OOP)**
+- **Focus**: Objects that contain both data and behavior.
+- **Structure**: Uses classes and objects.
+- **Common in**: Large applications, GUI apps, games.
+
+```python
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print(f"Hello, I'm {self.name}")
+
+p = Person("Bob")
+p.greet()
+```
+
+---
+
+## 🧮 3. **Functional Programming**
+- **Focus**: Pure functions, immutability, and avoiding side effects.
+- **Structure**: Uses `map()`, `filter()`, `lambda`, and recursion.
+- **Common in**: Data processing, mathematical computations.
+
+```python
+nums = [1, 2, 3, 4]
+squares = list(map(lambda x: x**2, nums))
+print(squares)
+```
+
+---
+
+## 🔁 4. **Imperative Programming**
+- **Focus**: How to perform tasks (explicit control flow).
+- **Structure**: Uses statements that change a program’s state.
+- **Common in**: Most Python code (overlaps with procedural).
+
+```python
+x = 10
+x += 5
+print(x)
+```
+
+---
+
+## 🧪 5. **Declarative Programming** (limited support)
+- **Focus**: What to do, not how to do it.
+- **Examples**: SQL-like queries in libraries like `pandas`.
+
+```python
+import pandas as pd
+
+df = pd.DataFrame({'age': [25, 30, 35]})
+print(df[df['age'] > 30])
+```
+
+---
+
+## 🧭 Summary Table
+
+| Paradigm            | Description                              | Python Support |
+|---------------------|------------------------------------------|----------------|
+| Procedural          | Step-by-step instructions                | ✅              |
+| Object-Oriented     | Classes and objects                      | ✅              |
+| Functional          | Pure functions, immutability             | ✅              |
+| Imperative          | Explicit control flow                    | ✅              |
+| Declarative         | Describe what, not how                   | ⚠️ (limited)    |
+
+---
