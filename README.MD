@@ -404,3 +404,89 @@ print(df[df['age'] > 30])
 | Declarative         | Describe what, not how                   | ⚠️ (limited)    |
 
 ---
+Here's a **complete set of notes** for working with Excel and CSV files in Python using **Pandas**, including reading files, viewing data, sorting, and handling null values.
+
+---
+
+## 📘 **1. Reading Excel and CSV Files**
+
+```python
+import pandas as pd
+
+# Reading a CSV file
+df_csv = pd.read_csv('your_file.csv')
+
+# Reading an Excel file
+df_excel = pd.read_excel('your_file.xlsx', engine='openpyxl')
+```
+
+> Replace `'your_file.csv'` and `'your_file.xlsx'` with your actual file paths.
+
+---
+
+## 👀 **2. Viewing Data with `head()` and `tail()`**
+
+```python
+# First 5 rows
+print(df_csv.head())
+
+# Last 5 rows
+print(df_excel.tail())
+```
+
+You can also pass a number to see more or fewer rows:
+```python
+df_csv.head(10)  # First 10 rows
+df_excel.tail(3)  # Last 3 rows
+```
+
+---
+
+## 🔃 **3. Sorting Data**
+
+```python
+# Sort in ascending order by a column
+df_sorted_asc = df_csv.sort_values(by='column_name', ascending=True)
+
+# Sort in descending order
+df_sorted_desc = df_excel.sort_values(by='column_name', ascending=False)
+```
+
+> Replace `'column_name'` with the actual column you want to sort by.
+
+---
+
+## 🚫 **4. Handling Null (Missing) Values**
+
+### 🔍 Detecting Nulls
+```python
+print(df_csv.isnull().sum())  # Count of nulls per column
+```
+
+### 🧹 Removing Nulls
+```python
+df_cleaned = df_csv.dropna()  # Removes rows with any null values
+```
+
+### 🧪 Replacing Nulls
+```python
+df_filled = df_excel.fillna(value='N/A')  # Replace nulls with 'N/A'
+```
+
+---
+
+## 🧠 Summary
+
+| Task                  | Function                  |
+|-----------------------|---------------------------|
+| Read CSV              | `pd.read_csv()`           |
+| Read Excel            | `pd.read_excel()`         |
+| View top rows         | `df.head()`               |
+| View bottom rows      | `df.tail()`               |
+| Sort data             | `df.sort_values()`        |
+| Detect nulls          | `df.isnull().sum()`       |
+| Drop nulls            | `df.dropna()`             |
+| Fill nulls            | `df.fillna()`             |
+
+---
+
