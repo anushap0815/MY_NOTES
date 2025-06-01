@@ -248,4 +248,73 @@ For structures like lists, dictionaries, and sets:
 
 ---
 
+In Python, the **Garbage Collector (GC)** is a built-in system that **automatically manages memory** by cleaning up objects that are no longer needed. This helps prevent memory leaks and keeps your program efficient.
+
+---
+
+## 🧹 What is Garbage Collection?
+
+Garbage collection is the process of:
+- **Identifying** objects that are no longer in use.
+- **Reclaiming** the memory they occupy.
+- **Freeing** it for future use.
+
+---
+
+## 🔄 How It Works in Python
+
+Python primarily uses **reference counting** and a **cyclic garbage collector**:
+
+### 1. **Reference Counting**
+Every object keeps track of how many references point to it.
+
+```python
+a = [1, 2, 3]
+b = a  # Reference count is 2
+del a  # Reference count is 1
+del b  # Reference count is 0 → object is deleted
+```
+
+When the count reaches **zero**, the object is **immediately destroyed**.
+
+---
+
+### 2. **Cyclic Garbage Collector**
+Sometimes, objects reference each other in a **cycle**, like:
+
+```python
+a = {}
+b = {'ref': a}
+a['ref'] = b
+```
+
+Even if you `del a` and `del b`, the cycle keeps them alive. Python’s **cyclic GC** detects and removes these.
+
+---
+
+## 🛠️ Using the `gc` Module
+
+You can interact with the garbage collector using the `gc` module:
+
+```python
+import gc
+
+gc.collect()  # Manually trigger garbage collection
+print(gc.get_stats())  # View GC stats
+```
+
+---
+
+## 📦 Summary
+
+| Feature                  | Description                                      |
+|--------------------------|--------------------------------------------------|
+| Automatic                | Yes, Python handles it for you                   |
+| Manual control           | Optional via `gc` module                         |
+| Reference counting       | Primary mechanism                               |
+| Cyclic GC                | Handles reference cycles                         |
+| Benefit                  | Prevents memory leaks, improves performance      |
+
+---
+
 
